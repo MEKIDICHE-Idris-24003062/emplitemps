@@ -1,6 +1,9 @@
 // === CONFIG ===
 const ICS_URL = 'https://raw.githubusercontent.com/TORCHIN-Maxence-24020376/EDT/refs/heads/main/edt_data/2GA1-2.ics';
 
+const API_BASE = 'https://meki.alwaysdata.net/api';
+
+
 // === STATE ===
 let currentMonday = startOfWeek(new Date());
 let events = [];                 // événements de la semaine (officiel pour l’instant)

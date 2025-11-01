@@ -1,52 +1,67 @@
 <!doctype html>
-</form>
-<div id="userBox" class="hidden">
-<span id="userEmail"></span>
-<button id="logoutBtn">Se déconnecter</button>
-</div>
-</nav>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mon emploi du temps</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="topbar">
+    <h1>Mon emploi du temps</h1>
+    <nav class="auth">
+        <form id="loginForm" class="auth-form hidden">
+            <input type="email" id="email" placeholder="email" required>
+            <input type="password" id="password" placeholder="mot de passe" required>
+            <button type="submit">Se connecter</button>
+        </form>
+        <div id="userBox" class="hidden">
+            <span id="userEmail"></span>
+            <button id="logoutBtn">Se déconnecter</button>
+        </div>
+    </nav>
 </header>
 
 
 <main>
-<section class="controls">
-<button id="prevWeek">⟵ Semaine précédente</button>
-<h2 id="weekTitle">Semaine</h2>
-<button id="nextWeek">Semaine suivante ⟶</button>
-<div class="actions">
-<button id="addEventBtn">+ Ajouter un événement</button>
-<label class="toggle">
-<input type="checkbox" id="showDrivingLayer" checked>
-<span>Afficher mes heures de conduite</span>
-</label>
-</div>
-</section>
+    <section class="controls">
+        <button id="prevWeek">⟵ Semaine précédente</button>
+        <h2 id="weekTitle">Semaine</h2>
+        <button id="nextWeek">Semaine suivante ⟶</button>
+        <div class="actions">
+            <button id="addEventBtn" disabled title="Arrive dans la phase 2">+ Ajouter un événement</button>
+
+            <label class="toggle">
+                <input type="checkbox" id="showOfficialLayer" checked>
+                <span>Afficher l'EDT (2GA1-2)</span>
+            </label>
+        </div>
+
+    </section>
 
 
-<section class="calendar" id="calendar"></section>
+    <section class="calendar" id="calendar"></section>
 </main>
 
 
 <dialog id="eventDialog">
-<form method="dialog" id="eventForm">
-<h3 id="dialogTitle">Nouvel événement</h3>
-<label>Titre <input name="title" required></label>
-<label>Date début <input type="datetime-local" name="start" required></label>
-<label>Date fin <input type="datetime-local" name="end" required></label>
-<label>Lieu <input name="location"></label>
-<label>Couleur <input type="color" name="color" value="#4f46e5"></label>
-<label>Notes <textarea name="notes" rows="3"></textarea></label>
-<menu>
-<button value="cancel">Annuler</button>
-<button id="saveEvent" value="default">Enregistrer</button>
-</menu>
-<input type="hidden" name="id" />
-</form>
+    <form method="dialog" id="eventForm">
+        <h3 id="dialogTitle">Nouvel événement</h3>
+        <label>Titre <input name="title" required></label>
+        <label>Date début <input type="datetime-local" name="start" required></label>
+        <label>Date fin <input type="datetime-local" name="end" required></label>
+        <label>Lieu <input name="location"></label>
+        <label>Couleur <input type="color" name="color" value="#4f46e5"></label>
+        <label>Notes <textarea name="notes" rows="3"></textarea></label>
+        <menu>
+            <button value="cancel">Annuler</button>
+            <button id="saveEvent" value="default">Enregistrer</button>
+        </menu>
+        <input type="hidden" name="id" />
+    </form>
 </dialog>
 
 
 <template id="eventTemplate">
-<div class="event"><span class="title"></span></div>
+    <div class="event"><span class="title"></span></div>
 </template>
 
 
